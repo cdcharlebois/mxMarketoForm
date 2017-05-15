@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="MarketoForm.widget.MarketoForm" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>MarketoForm</name>
+    <description>The description of this widget.</description>
+
+    <icon />
+
+    <properties>
+        <property key="mktoFormId" type="string" required="true" defaultValue="">
+            <caption>Marketo Form ID</caption>
+            <category>General</category>
+            <description>The ID of the Marketo Form to load</description>
+        </property>
+        <property key="mktoKey" type="string" required="true" defaultValue="">
+            <caption>Marketo key</caption>
+            <category>General</category>
+            <description></description>
+        </property>
+        <property key="mfName" type="microflow" required="false">
+            <caption>On Submit</caption>
+            <category>General</category>
+            <description>MF to call on successful submit of form</description>
+            <returnType type="Void"></returnType>
+        </property>
+        <property key="options" type="string" multiline="true" required="false" defaultValue="">
+            <caption>Form Vals</caption>
+            <category>General</category>
+            <description>Should be a valid JSON object; will be used in the `form.vals()` call after the form is loaded</description>
+        </property>
+    </properties>
+</widget>
