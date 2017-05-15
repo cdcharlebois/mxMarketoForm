@@ -39,7 +39,10 @@ define([
         postCreate: function() {
             logger.debug(this.id + ".postCreate");
             // 1. identify the parent node for the injection
-            this.domNode.setAttribute('id', 'mktoForm_' + this.mktoFormId);
+            // this.domNode.setAttribute('id', 'mktoForm_' + this.mktoFormId);
+            var form = document.createElement('form')
+            form.setAttribute('id', 'mktoForm_' + this.mktoFormId);
+            this.domNode.appendChild(form);
             // 2. call the code
             this._loadMarketoScript(lang.hitch(this, function() {
                 this._loadMarketoForm(this.mktoFormId, this.mktoKey);
@@ -83,14 +86,8 @@ define([
                             guids: [this._contextObj.getGuid()]
                         }
                     });
+                    return false;
                 }));
-                // try {
-                //     var optionsObject = JSON.parse(this.options);
-                //     form.vals(optionsObject);
-                // } catch (e) {
-                //     console.error('MKTO FORM WIDGET >>> there was an error parsing the following string: \n' + this.options);
-                //     console.error(e);
-                // }
                 var res = {};
                 this.options.forEach(function(o) {
                     res[o.fName] = this._contextObj.get(o.fValue);
