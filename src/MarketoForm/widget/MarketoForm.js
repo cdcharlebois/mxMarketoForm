@@ -84,13 +84,19 @@ define([
                         }
                     });
                 }));
-                try {
-                    var optionsObject = JSON.parse(this.options);
-                    form.vals(optionsObject);
-                } catch (e) {
-                    console.error('MKTO FORM WIDGET >>> there was an error parsing the following string: \n' + this.options);
-                    console.error(e);
-                }
+                // try {
+                //     var optionsObject = JSON.parse(this.options);
+                //     form.vals(optionsObject);
+                // } catch (e) {
+                //     console.error('MKTO FORM WIDGET >>> there was an error parsing the following string: \n' + this.options);
+                //     console.error(e);
+                // }
+                var res = {};
+                this.options.forEach(function(o) {
+                    res[o.fName] = this._contextObj.get(o.fValue);
+                }, this);
+                // console.log(res);
+                form.vals(res);
 
             }));
         },

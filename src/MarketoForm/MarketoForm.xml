@@ -22,10 +22,30 @@
             <description>MF to call on successful submit of form</description>
             <returnType type="Void"></returnType>
         </property>
-        <property key="options" type="string" multiline="true" required="false" defaultValue="">
+        <!--<property key="options" type="string" multiline="true" required="false" defaultValue="">
             <caption>Form Vals</caption>
             <category>General</category>
             <description>Should be a valid JSON object; will be used in the `form.vals()` call after the form is loaded</description>
+        </property>-->
+        <property key="options" type="object" required="false" isList="true">
+            <caption>Fields to Fill</caption>
+            <category>General</category>
+            <description></description>
+            <properties>
+                <property key="fName" type="string" required="false" defaultValue="">
+                    <caption>Field Name </caption>
+                    <category>Fields</category>
+                    <description></description>
+                </property>
+                <property key="fValue" type="attribute" required="true" isPath="optional" pathType="reference">
+                    <caption>Value </caption>
+                    <category>Fields</category>
+                    <description></description>
+                    <attributeTypes>
+                        <attributeType name="String" />
+                    </attributeTypes>
+                </property>
+            </properties>
         </property>
     </properties>
 </widget>
